@@ -1,0 +1,59 @@
+/* В этом файле вы опишете значения переменных в разных цветовых схемах.
+Придерживайтесь такого именования классов:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
+*/
+
+:root.theme-dark {
+    --main-font: 'Inter-Variable', sans-serif;
+    --accent-font: 'PressStart2P-Regular', sans-serif;
+    --text-color: #00CC14;
+    --main-font-weight-text: 465;
+    --main-font-weight-title: 785;
+    --bg-color: #000000;
+    --bg-image: repeating-linear-gradient(90deg, #000 0 2px , transparent 2px 4px), repeating-linear-gradient(180deg, #000 0 2px , transparent 2px 4px), linear-gradient(to bottom, #007f0c 0.01%, #004306 100%);
+    --content-width: clamp(375px, 100%, 700px); 
+    --background-label: #000000;
+    --text-color-inverse: #00cc14;
+    --text-color-button: #00CC14;
+    --border-color: #00CC14;
+    --color-contour: #00CC14;
+    --color-sparks: #ff0000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+    --main-font: 'Inter-Variable', sans-serif;
+    --accent-font: 'PressStart2P-Regular', sans-serif;
+    --text-color: #00CC14;
+    --main-font-weight-text: 465;
+    --main-font-weight-title: 785;
+    --bg-color: #000000;
+    --bg-image: repeating-linear-gradient(90deg, #000 0 2px , transparent 2px 4px), repeating-linear-gradient(180deg, #000 0 2px , transparent 2px 4px), linear-gradient(to bottom, #007f0c 0.01%, #004306 100%);
+    --content-width: clamp(375px, 100%, 700px); 
+    --background-label: #000000;
+    --text-color-inverse: #00cc14;
+    --text-color-button: #00CC14;
+    --border-color: #00CC14;
+    --color-contour: #00CC14;
+    --color-sparks: #ff0000;
+    }
+}    
+
+:root.theme-light {
+    --main-font: 'Inter-Variable', sans-serif;
+    --accent-font: 'PressStart2P-Regular', sans-serif;
+    --text-color: #000000;
+    --main-font-weight-text: 400;
+    --main-font-weight-title: 700;
+    --bg-image: repeating-linear-gradient(90deg, #d3d3d3 0 2px , transparent 2px 4px), repeating-linear-gradient(180deg, #d3d3d3 0 2px , transparent 2px 4px), linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+    --bg-color: #ffffff;
+    --content-width: clamp(375px, 100%, 700px); 
+    --background-label: #ffffff;
+    --text-color-inverse: #FFF;
+    --text-color-button: #ffffff;
+    --border-color: #000000;
+    --color-contour: #000000;
+    --color-sparks: #ff0000;
+}

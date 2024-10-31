@@ -1,0 +1,440 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+
+.page {
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  font-family: var(--main-font, 'Inter-Variable', sans-serif);
+  font-variation-settings: "wght" var(--main-font-weight-text, 400);
+  color: var(--text-color);
+  background-image: var(--bg-image);
+  background-color: var(--bg-color);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; 
+  margin: 0 auto;   
+  inline-size: 100%;
+  max-inline-size: var(--content-width);
+}
+
+/* ШАПКА */
+.header {
+  display: grid;
+  justify-items: center;
+  margin-block-start: 100px;
+  margin-block-end: 100px;
+  background: var(--bg-color);
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  text-transform: uppercase;
+  border: 2px solid var(--text-color);
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  line-height: 65px;
+  margin-block-start: 136px;
+}
+
+.header__mintitle {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  line-height: 23px;
+  margin-block-start: 21px;
+}
+
+.theme-menu__list {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  margin: 23px 0 22px 0;
+}
+
+.theme-menu__button {
+  position: relative;
+  font-size: 14px;
+  line-height: 14px;
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  left: -15px;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  block-size: 2px;
+  background-color: var(--text-color);
+  inline-size: 100%;
+  opacity: 0.6;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.theme-menu__button:not(:hover)::after {  
+  transform-origin: left;  
+  transform: scaleX(0);  
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+@media (width <= 376px) {  
+  .page {  
+      inline-size: 100%; 
+  }  
+
+  .header__title {
+    margin-block-start: 112px;
+  }
+
+  .header__mintitle {
+    margin-block-start: 8px;
+  }
+
+  .theme-menu__list {
+    margin: 20px 0 22px 0;
+  }
+} 
+
+/* ОСНОВНОЙ КОНТЕНТ */
+.content {
+  display: grid;
+  gap: 50px;
+}
+
+.section {
+  display: grid;
+  border: 2px solid var(--text-color);
+  background: var(--bg-color);
+}
+
+.section__title {
+  font-size: 18px;
+  line-height: 21.78px;
+  padding: 5px 24px 5px 10px;
+  font-variation-settings: "wght" var(--main-font-weight-title, 700);
+}
+
+.section__photo-wrap {
+  position: relative;  
+}
+
+.label {
+  mix-blend-mode: hard-light;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.5;
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  font-size: 14px;
+  line-height: 14px;
+  text-shadow: 1px var(--background-label);
+  right: 25px;
+  top: 27px;
+}
+
+@supports (text-stroke: 1px var(--background-label)) or (-webkit-text-stroke: 1px var(--background-label)) {
+  .label {
+    -webkit-text-stroke: 1px var(--background-label);
+    text-stroke: 1px var(--background-label);
+  }
+}  
+
+.section__photo {
+  object-position: center;
+  object-fit: cover;
+  inline-size: 100%;
+  border-top: 2px solid var(--text-color);
+  border-bottom: 2px solid var(--text-color);
+}
+
+.section__item {
+  margin: 23px;
+}
+
+.section__paragraph {
+  margin-bottom: 27px;
+  line-height: 21px;
+  font-size: 18px;
+}
+
+.section__paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.section__button {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-right: 25px;
+}
+
+.like-icon {
+  inline-size: inherit;
+  block-size: inherit;
+  fill: var(--text-color);
+  position: relative;
+}
+
+.card__icon-button {
+  inline-size: 40px;
+  block-size: 38px;
+  background-color: var(--bg-color);
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--border-color);
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__like-button {
+  border: 2px solid var(--text-color);
+  background-color: transparent;
+  text-align: center;
+  min-width: 130px;
+  min-height: 38px;
+  cursor: pointer;
+}
+
+.button {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;  
+  background: var(--bg-color);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--text-color);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: var(--text-color);
+  block-size: 100%;
+  inline-size: 100%;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  top: 0;
+  left: 0;
+  transform-origin: right;
+}
+
+.button:not(:hover)::before {  
+  transform-origin: left;  
+  transform: scaleX(0);  
+}  
+
+.button:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.button__text {
+  font-family: var(--accent-font, 'PressStart2P-Regular', sans-serif);
+  font-size: 14px;
+  line-height: 12.6px;
+  z-index: 1;
+  position: relative; 
+  mix-blend-mode: difference;  
+  color: var(--text-color-button);
+}
+
+.button-save {
+  display: flex;
+  align-items: center;
+  gap: 3.5px;
+  margin: 0 auto 103px;
+  padding: 16px 23px;
+  border: 2px solid var(--text-color);
+  background-color:  var(--bg-color);
+  cursor: pointer;
+}
+
+.floppy {
+  max-width: 21px;
+  height: 21px;
+  color: var(--text-color-inverse);
+  mix-blend-mode: difference;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+/* Попап */
+dialog {
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  overflow: hidden;
+  inline-size: 353px;
+  display: grid;
+  padding: 30px;
+}
+
+dialog:not([open]) {
+  pointer-events: none;
+  opacity: 0;
+  display: none;
+}
+
+dialog::backdrop {
+  background-color: rgb(0, 0, 0, 0.75);
+}
+
+.dialog__wrap {
+  display: grid;
+  gap: 30px;
+}
+
+dialog .floppy {
+  max-width: 39px;
+  height: 39px;
+  color: var(--text-color-inverse);
+  mix-blend-mode: difference;
+}
+
+.dialog__text {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.dialog__paragraph {
+  color: var(--text-color);
+  inline-size: 198px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.dialog__button {
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid var(--text-color);
+  background-color: transparent;
+  text-align: center;
+  min-width: 293px;
+  min-height: 38px;
+}
+
+/* фильтры */
+.image-grayscale {
+  filter: grayscale(70%);
+}
+
+.image-saturate {
+  filter: saturate(400%);
+}
+
+.image-hue-rotate {
+  filter: hue-rotate(35deg);
+}
+
+.image-invert {
+  filter: invert(0.8);
+}
+
+.image-sepia {
+  filter: sepia(80%);
+}
+
+.image-blur {
+  filter: blur(0.5rem);
+}
+
+.image-multiple {
+  filter: hue-rotate(90deg) blur(0.2rem) saturate(70%) sepia(20%);
+}
+
+@media (width <= 376px) {
+  .label {
+    right: 10px;
+    top: 24px;
+  }
+
+  .section__item {
+    margin: 20px 27px 27px 27px;
+  }
+
+  .section__paragraph {
+    margin-bottom: 26px;
+  }
+
+  .floppy {
+    max-width: 28px;
+    height: 28px;
+  }
+  
+  .button-save {
+    gap: 9.5px;
+    flex-direction: column;
+    padding: 13px 23px 16px 23px;
+    margin: 0 auto 100px;
+  }
+  
+  dialog {
+    inline-size: 341px;
+    padding: 30px 42px;
+  }
+
+  .dialog__button {
+    min-width: 257px;
+  }
+}
