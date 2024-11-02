@@ -325,9 +325,8 @@
 dialog {
   background: var(--bg-color);
   border: 2px solid var(--border-color);
-  inline-size: 353px;
   display: grid;
-  padding: 30px;
+  padding: 28.5px;
 }
 
 dialog:not([open]) {
@@ -433,8 +432,7 @@ dialog .floppy {
   }
   
   dialog {
-    inline-size: 341px;
-    padding: 30px 42px;
+    padding: 28.5px 38px;
   }
 
   .dialog__button {
