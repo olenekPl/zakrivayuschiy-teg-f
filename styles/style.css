@@ -373,9 +373,8 @@ dialog .floppy {
   cursor: pointer;
   border: 2px solid var(--text-color);
   background-color: transparent;
-  text-align: center;
-  min-width: 293px;
-  min-height: 38px;
+  inline-size: 100%;
+  padding: 7.8px 0;
 }
 
 /* фильтры */
@@ -436,9 +435,5 @@ dialog .floppy {
   dialog {
     max-inline-size: 341px;
     padding: 28.4px 40px;
-  }
-
-  .dialog__button {
-    min-width: 257px;
   }
 }
